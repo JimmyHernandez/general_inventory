@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inventario de Tabletas</title>
+</head>
+<body>
+    <h1>Inventario de Tabletas</h1>
+    <a href="{% url 'create_tablet' %}">Agregar Nueva Tableta</a>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Modelo</th>
+                <th>Marca</th>
+                <th>garantia</th>
+                </tr>
+        </thead>
+        <tbody>
+            {% for tablet in objects %}
+                <tr>
+                    <td>{{ tablet.modelo }}</td>
+                    <td>{{ tablet.marca }}</td>
+                    <td>{{ tablet.garantia }}</td>
+                    <td>
+                    <a href="{% url 'update_tablet' tablet.pk %}">Editar</a>
+                    <a href="{% url 'delete_tablet' tablet.pk %}">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html> 
+
