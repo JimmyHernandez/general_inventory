@@ -1,0 +1,41 @@
+# Python files
+*.pyc
+*.pyo
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+
+# Django-specific files
+*.sqlite3
+*.db
+db.sqlite3
+local_settings.py
+.DS_Store
+
+# Virtual environment
+venv/
+env/
+/.venv/
+
+# IDE files
+.idea/
+.vscode/
+
+# Build files
+build/
+dist/
+*.egg-info/
+
+# Logs
+*.log
+logs/
+
+# Test files
+*.out
+*.err
+.coverage
+.coverage.xml
+
+# Other
+*.swp
+*~
