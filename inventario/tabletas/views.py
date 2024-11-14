@@ -1,55 +1,37 @@
 # my_app/views.py
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
-from .models import NewTablet
-from .forms import TabletForm  
-
-
-
+from .models import Luma07
+from .forms import FormLuma07 
 
 def tablet_list(request):
-    objects = NewTablet.objects.all()
-    return render(request, 'lista.html', {'objects': objects})
-
-
-
-
-
+    objects = Luma07.objects.all()
+    return render(request, 'lista_luma07.html', {'objects': objects})
 
 def create_tablet(request):
     if request.method == 'POST':
-        form = TabletForm(request.POST)
+        form = FormLuma07(request.POST)
         if form.is_valid():
             form.save()
             return redirect('tablet_list')
     else:
-        form = TabletForm()
+        form = FormLuma07()
     return render(request, 'create.html', {'form': form})
 
-
-
-
-
-
 def update_tablet(request, pk):
-    object = NewTablet.objects.get(pk=pk)
+    object = Luma07.objects.get(pk=pk)
     if request.method == 'POST':
-        form = TabletForm(request.POST, instance=object)
+        form = FormLuma07(request.POST, instance=object)
         if form.is_valid():
             form.save()
             return redirect('tablet_list')
     else:
-        form = TabletForm(instance=object)
+        form = FormLuma07(instance=object)
     return render(request, 'update.html', {'form': form})
 
 
-
-
-
-
-
 def delete_tablet(request, pk):
-    object = NewTablet.objects.get(pk=pk)
+    object = Luma07.objects.get(pk=pk)
     object.delete()
-    return HttpResponseRedirect('lista.html')
+    return HttpResponseRedirect('lista_luma07.html')
     
