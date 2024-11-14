@@ -1,33 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 <head>
-    <title>Inventario de Tabletas</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario General XPERTS</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Inventario de Tabletas</h1>
-    <a href="{% url 'create_tablet' %}">Agregar Nueva Tableta</a>
-    <table border="1">
-        <thead>
-            <tr>
-                <th>Modelo</th>
-                <th>Marca</th>
-                <th>garantia</th>
-                </tr>
-        </thead>
-        <tbody>
-            {% for tablet in objects %}
-                <tr>
-                    <td>{{ tablet.modelo }}</td>
-                    <td>{{ tablet.marca }}</td>
-                    <td>{{ tablet.garantia }}</td>
-                    <td>
-                    <a href="{% url 'update_tablet' tablet.pk %}">Editar</a>
-                    <a href="{% url 'delete_tablet' tablet.pk %}">Eliminar</a>
-                    </td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</body>
-</html> 
+    <div class="container">
+        <header>
+            <h1>Dashboard</h1>
+            <div class="fecha-hora">
+                <span id="fecha"></span>
+                <span id="hora"></span>
+            </div>
+        </header>
 
+        <div class="app-container">
+            <a href="tabletas.html" class="app">Tabletas</a>
+            <a href="uniformes.html" class="app">Uniformes</a>
+            <a href="seguridad.html" class="app">Equipo de seguridad</a>
+        </div>
+
+        <footer>
+            <p>Contacto: <a href="mailto:contacto@ejemplo.com">contacto@ejemplo.com</a></p>
+            <p>Disclaimer: Esta aplicación es solo para fines demostrativos. El contenido puede no ser preciso o completo.</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

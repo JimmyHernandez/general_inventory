@@ -4,9 +4,17 @@ from django.http import HttpResponseRedirect
 from .models import NewTablet
 from .forms import TabletForm  
 
+
+
+
 def tablet_list(request):
     objects = NewTablet.objects.all()
-    return render(request, 'index.html', {'objects': objects})
+    return render(request, 'lista.html', {'objects': objects})
+
+
+
+
+
 
 def create_tablet(request):
     if request.method == 'POST':
@@ -17,6 +25,11 @@ def create_tablet(request):
     else:
         form = TabletForm()
     return render(request, 'create.html', {'form': form})
+
+
+
+
+
 
 def update_tablet(request, pk):
     object = NewTablet.objects.get(pk=pk)
@@ -29,7 +42,14 @@ def update_tablet(request, pk):
         form = TabletForm(instance=object)
     return render(request, 'update.html', {'form': form})
 
+
+
+
+
+
+
 def delete_tablet(request, pk):
     object = NewTablet.objects.get(pk=pk)
     object.delete()
-    return HttpResponseRedirect('index.html')
+    return HttpResponseRedirect('lista.html')
+    

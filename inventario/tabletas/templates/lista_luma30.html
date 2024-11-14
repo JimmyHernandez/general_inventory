@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Inventario de Tabletas Luma 30</title>
+</head>
+<body>
+    <header>
+        <a href="tabletas.html" class="back-button">← Volver</a>
+        <a href="index.html" class="home-button">Inicio</a>
+    </header>
+    <h1>Inventario de Tabletas</h1>
+    <a href="{% url 'create_tablet' %}">Agregar Nueva Tableta</a>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Usuario</th>
+                <th>Email Address</th>
+                <th>Classification</th>
+                <th>Area</th>
+                <th>Telefono</th>
+                <th>Dispositivo</th>
+                <th>IMEI</th>
+                <th>Sim Card</th>
+                <th>Versión</th>
+                <th>Puerto de Carga</th>
+                <th>Tag ID</th>
+                <th>Departamento</th>
+                <th>Actualizado en</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for tablet in objects %}
+                <tr>
+                    <td>{{ tablet.usuario }}</td>
+                    <td>{{ tablet.email_address }}</td>
+                    <td>{{ tablet.classification }}</td>
+                    <td>{{ tablet.area }}</td>
+                    <td>{{ tablet.telefono }}</td>
+                    <td>{{ tablet.dispositivo }}</td>
+                    <td>{{ tablet.imei }}</td>
+                    <td>{{ tablet.sim_card }}</td>
+                    <td>{{ tablet.version }}</td>
+                    <td>{{ tablet.puerto_de_carga}}</td>
+                    <td>{{ tablet.tag_id }}</td>
+                    <td>{{ tablet.departamento }}</td>
+                    <td>{{ tablet.last_modification }}</td>
+                    <td>
+                    <a href="{% url 'update_tablet' tablet.pk %}">Editar</a>
+                    <a href="{% url 'delete_tablet' tablet.pk %}">Eliminar</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html> 
+
