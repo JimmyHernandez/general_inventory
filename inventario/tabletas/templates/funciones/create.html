@@ -1,19 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Editar Tableta</title>
+    <title>Agregar Nueva Tableta</title>
 </head>
 <body>
     <header>
         <a href="#" class="back-button">← Volver</a>
-        <a href="main.html" class="home-button">Inicio</a>
+        <a href="{% url 'main_menu' %}" class="home-button">Inicio</a>
     </header>
-    <h1>Editar Tableta</h1>
+    <h1>Agregar Nueva Tableta</h1>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Guardar Cambios</button>
+        <button type="submit">Guardar</button>
     </form>
 </body>
 </html>
-

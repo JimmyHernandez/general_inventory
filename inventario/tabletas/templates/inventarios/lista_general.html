@@ -1,15 +1,25 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Inventario de Tabletas Luma 07</title>
+    <title>Inventario de Tabletas XPERTS</title>
 </head>
 <body>
     <header>
-        <a href="tabletas.html" class="back-button">← Volver</a>
-        <a href="main.html" class="home-button">Inicio</a>
+        <a href="{% url 'main_menu' %}"  class="back-button">← Volver</a>
     </header>
-    <h1>Luma 07</h1>
-    <a href="{% url 'create_tablet' %}">Agregar Nueva Tableta</a>
+      
+    <h1>Inventario General de Tabletas</h1>
+    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Buscar</button>    
+        <button type="submit" href="{% url 'create_tablet' %}">Agregar Nueva Tableta</button>
+    </form>
+    <div>
+        <button type="submit">Imprimir Lista</button>
+    </div>
+
     <table border="1">
         <thead>
             <tr>
@@ -20,7 +30,7 @@
                 <th>Telefono</th>
                 <th>Dispositivo</th>
                 <th>IMEI</th>
-                <th>Sim Card</th>
+                <th>SIM Card</th>
                 <th>Versión</th>
                 <th>Puerto de Carga</th>
                 <th>Tag ID</th>
@@ -51,7 +61,7 @@
                 </tr>
             {% endfor %}
         </tbody>
-    </table>
+    </table>       
 </body>
 </html> 
 

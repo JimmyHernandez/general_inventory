@@ -10,16 +10,10 @@
     <div class="container">
         <header>
             <h1>Inventario General</h1>
-            <div class="fecha-hora">
-                <span id="fecha"></span>
-                <span id="hora"></span>
-            </div>
         </header>
 
         <div class="app-container">
-            <a href="tabletas.html" class="app">Tabletas</a>
-            <a href="uniformes.html" class="app">Uniformes</a>
-            <a href="seguridad.html" class="app">Equipo de seguridad</a>
+            <a href="{% url 'search_department' %}" class="app">Tabletas</a>
         </div>
 
         <footer>

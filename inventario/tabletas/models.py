@@ -1,7 +1,21 @@
 from django.db import models
 #from django.contrib.auth.models import User  # Para relacionar con el usuario asignado
 
-class Luma07(models.Model):
+class Departamento(models.Model):
+    nombre = models.CharField(max_length=100, unique=True, choices=[
+        ('07' , '07'),
+        ('30' , '30'),
+        ('REC' , 'REC'),
+        ('DTOP' , 'DTOP'),
+        ('EDUCACION' , 'EDUCACION'),
+        ('ORNATO' , 'ORNATO'),
+        ('IT' , 'IT'),
+        ('ORQUIDEA' , 'ORQUIDEA'),
+        ('OFICINA' , 'OFICINA')
+       ])  # Asegurar que cada nombre sea único
+    
+
+class Tabletas(models.Model):
     usuario = models.CharField(max_length=200)
     email_address = models.EmailField()
     classification = models.CharField(max_length=50, choices=[
@@ -53,4 +67,6 @@ class Luma07(models.Model):
 
     def __str__(self):
             return f"{self.area} - {self.tag_id}"
+    
+    
     

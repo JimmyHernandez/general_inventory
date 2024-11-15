@@ -1,9 +1,14 @@
 from django import forms
-from .models import Luma07
+from .models import Tabletas, Departamento
 
-class FormLuma07(forms.ModelForm):
+class FormTableta(forms.ModelForm):
     class Meta:
-        model = Luma07
+        model = Tabletas
+        fields = '__all__'  # or specify specific fields
+
+class FormDepartamento(forms.ModelForm):
+    class Meta:
+        model = Departamento
         fields = '__all__'  # or specify specific fields
 
   
