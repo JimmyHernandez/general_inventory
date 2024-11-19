@@ -17,6 +17,8 @@ venv/
 env/
 /.venv/
 djangoenv
+workEnv/
+/workEnv
 
 # IDE files
 .idea/
