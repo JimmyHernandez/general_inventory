@@ -1,27 +1,33 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Inventario General XPERTS</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
     <div class="container">
-        <header>
-            <h1>Inventario General</h1>
-        </header>
+      <header>
+        <h1>Inventario General</h1>
+      </header>
 
-        <div class="app-container">
-            <a href="{% url 'search_department' %}" class="app">Tabletas</a>
-        </div>
+      <div class="app-container">
+        <a href="{% url 'search_department' %}" class="app">Tabletas</a>
+      </div>
 
-        <footer>
-            <p>Contacto: <a href="mailto:contacto@ejemplo.com">contacto@ejemplo.com</a></p>
-            <p>Disclaimer: Esta aplicación es solo para fines demostrativos. El contenido puede no ser preciso o completo.</p>
-        </footer>
+      <footer>
+        <p>
+          Contacto:
+          <a href="mailto:contacto@ejemplo.com">contacto@ejemplo.com</a>
+        </p>
+        <p>
+          Disclaimer: Esta aplicación es solo para fines demostrativos. El
+          contenido puede no ser preciso o completo.
+        </p>
+      </footer>
     </div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

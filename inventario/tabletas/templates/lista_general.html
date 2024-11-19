@@ -1,32 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Inventario de Tabletas XPERTS</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <a href="{% url 'main_menu' %}"  class="back-button">← Volver</a>
+      <a href="{% url 'main_menu' %}" class="back-button">← Volver</a>
     </header>
-      
-    <h1>Inventario General de Tabletas</h1>
 
-    
-    <div>
-        <a href="{% url 'create_tablet' %}">Agregar Nueva Tableta</a>
-        <a href="">Imprimir lista</a>
-    </div>
+    <h1>Inventario General de Tabletas</h1>
     
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit">Buscar</button>    
+        <button type="submit" href="{% url 'create_tablet' %}">Agregar Nueva Tableta</button>
     </form>
+    <div>
+        <button type="submit">Imprimir Lista</button>
+    </div>
 
     <table border="1">
         <thead>
             <tr>
-                <th>Departamento</th> 
-                <th>Tag ID</th>
                 <th>Usuario</th>
                 <th>Email Address</th>
                 <th>Classification</th>
@@ -36,9 +32,10 @@
                 <th>IMEI</th>
                 <th>SIM Card</th>
                 <th>Versión</th>
-                <th>Puerto de Carga</th>         
+                <th>Puerto de Carga</th>
+                <th>Tag ID</th>
+                <th>Departamento</th>
                 <th>Actualizado en</th>
-                <th>Actualizado por</th>
             </tr>
         </thead>
         <tbody>

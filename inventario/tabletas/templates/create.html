@@ -1,18 +1,19 @@
+<!-- The provided code is an HTML template for a web page that allows users to add a new tablet device.
+Here's a breakdown of the structure and elements in the code: -->
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Agregar Nueva Tableta</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <a href="#" class="back-button">← Volver</a>
-        <a href="{% url 'main_menu' %}" class="home-button">Inicio</a>
+      <a href="#" class="back-button">← Volver</a>
+      <a href="{% url 'main_menu' %}" class="home-button">Inicio</a>
     </header>
     <h1>Agregar Nueva Tableta</h1>
     <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Guardar</button>
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit">Guardar</button>
     </form>
-</body>
+  </body>
 </html>

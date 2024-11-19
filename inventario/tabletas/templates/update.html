@@ -1,19 +1,21 @@
+<!-- The provided code is an HTML template for editing a tablet device. It includes the necessary
+structure for a web page, such as the doctype declaration, html, head, and body tags. Inside the
+body tag, there is a header section with two anchor tags for navigation, a heading element (<h1>)
+for the title "Editar Tableta", and a form element for editing tablet information. -->
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Editar Tableta</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <a href="#" class="back-button">← Volver</a>
-        <a href="{% url 'main_menu' %}" class="home-button">Inicio</a>
+      <a href="#" class="back-button">← Volver</a>
+      <a href="{% url 'main_menu' %}" class="home-button">Inicio</a>
     </header>
     <h1>Editar Tableta</h1>
     <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Guardar Cambios</button>
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit">Guardar Cambios</button>
     </form>
-</body>
+  </body>
 </html>
-
