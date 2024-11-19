@@ -81,6 +81,30 @@
         "documentation": {}
     },
     {
+        "label": "migrations",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
+        "label": "models",
+        "importPath": "django.db",
+        "description": "django.db",
+        "isExtraImport": true,
+        "detail": "django.db",
+        "documentation": {}
+    },
+    {
         "label": "AppConfig",
         "importPath": "django.apps",
         "description": "django.apps",
@@ -94,14 +118,6 @@
         "description": "django",
         "isExtraImport": true,
         "detail": "django",
-        "documentation": {}
-    },
-    {
-        "label": "models",
-        "importPath": "django.db",
-        "description": "django.db",
-        "isExtraImport": true,
-        "detail": "django.db",
         "documentation": {}
     },
     {
@@ -205,7 +221,7 @@
         "kind": 5,
         "importPath": "inventario.inventario.settings",
         "description": "inventario.inventario.settings",
-        "peekOfCode": "ROOT_URLCONF = 'inventario.urls'\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [\n            BASE_DIR / 'tabletas/templates/funciones',\n            BASE_DIR / 'tabletas/templates/listas',\n            BASE_DIR / 'templates/inventarios',\n        ],\n        'APP_DIRS': True,",
+        "peekOfCode": "ROOT_URLCONF = 'inventario.urls'\nTEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',",
         "detail": "inventario.inventario.settings",
         "documentation": {}
     },
@@ -214,7 +230,7 @@
         "kind": 5,
         "importPath": "inventario.inventario.settings",
         "description": "inventario.inventario.settings",
-        "peekOfCode": "TEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [\n            BASE_DIR / 'tabletas/templates/funciones',\n            BASE_DIR / 'tabletas/templates/listas',\n            BASE_DIR / 'templates/inventarios',\n        ],\n        'APP_DIRS': True,\n        'OPTIONS': {",
+        "peekOfCode": "TEMPLATES = [\n    {\n        'BACKEND': 'django.template.backends.django.DjangoTemplates',\n        'DIRS': [],\n        'APP_DIRS': True,\n        'OPTIONS': {\n            'context_processors': [\n                'django.template.context_processors.debug',\n                'django.template.context_processors.request',\n                'django.contrib.auth.context_processors.auth',",
         "detail": "inventario.inventario.settings",
         "documentation": {}
     },
@@ -318,6 +334,15 @@
         "documentation": {}
     },
     {
+        "label": "Migration",
+        "kind": 6,
+        "importPath": "inventario.tabletas.migrations.0001_initial",
+        "description": "inventario.tabletas.migrations.0001_initial",
+        "peekOfCode": "class Migration(migrations.Migration):\n    initial = True\n    dependencies = [\n    ]\n    operations = [\n        migrations.CreateModel(\n            name='Departamento',\n            fields=[\n                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),\n                ('nombre', models.CharField(choices=[('07', '07'), ('30', '30'), ('REC', 'REC'), ('DTOP', 'DTOP'), ('EDUCACION', 'EDUCACION'), ('ORNATO', 'ORNATO'), ('IT', 'IT'), ('ORQUIDEA', 'ORQUIDEA'), ('OFICINA', 'OFICINA')], max_length=100, unique=True)),",
+        "detail": "inventario.tabletas.migrations.0001_initial",
+        "documentation": {}
+    },
+    {
         "label": "TabletasConfig",
         "kind": 6,
         "importPath": "inventario.tabletas.apps",
@@ -349,7 +374,7 @@
         "kind": 6,
         "importPath": "inventario.tabletas.models",
         "description": "inventario.tabletas.models",
-        "peekOfCode": "class Departamento(models.Model):\n    nombre = models.CharField(max_length=100, unique=True, choices=[\n        ('07' , '07'),\n        ('30' , '30'),\n        ('REC' , 'REC'),\n        ('DTOP' , 'DTOP'),\n        ('EDUCACION' , 'EDUCACION'),\n        ('ORNATO' , 'ORNATO'),\n        ('IT' , 'IT'),\n        ('ORQUIDEA' , 'ORQUIDEA'),",
+        "peekOfCode": "class Departamento(models.Model):\n    departamento = models.CharField(max_length=100, unique=True, choices=[\n        ('07' , '07'),\n        ('30' , '30'),\n        ('REC' , 'REC'),\n        ('DTOP' , 'DTOP'),\n        ('EDUCACION' , 'EDUCACION'),\n        ('ORNATO' , 'ORNATO'),\n        ('IT' , 'IT'),\n        ('ORQUIDEA' , 'ORQUIDEA'),",
         "detail": "inventario.tabletas.models",
         "documentation": {}
     },
@@ -358,7 +383,7 @@
         "kind": 6,
         "importPath": "inventario.tabletas.models",
         "description": "inventario.tabletas.models",
-        "peekOfCode": "class Tabletas(models.Model):\n    usuario = models.CharField(max_length=200)\n    email_address = models.EmailField()\n    classification = models.CharField(max_length=50, choices=[\n        ('GENERAL FOREMAN' , 'GENERAL FOREMAN'),\n        ('CREW LEADER' , 'CREW LEADER')\n        # Add more choices as needed\n    ])\n    area = models.CharField(max_length=50, choices=[\n            ('ARECIBO 1' , 'ARECIBO 1'),",
+        "peekOfCode": "class Tabletas(models.Model):\n    departamento = models.CharField(max_length=50, choices=[\n        ('07' , '07'),\n        ('30' , '30'),\n        ('REC' , 'REC'),\n        ('DTOP' , 'DTOP'),\n        ('EDUCACION' , 'EDUCACION'),\n        ('ORNATO' , 'ORNATO'),\n        ('IT' , 'IT'),\n        ('ORQUIDEA' , 'ORQUIDEA'),",
         "detail": "inventario.tabletas.models",
         "documentation": {}
     },
@@ -421,7 +446,7 @@
         "kind": 2,
         "importPath": "inventario.tabletas.views",
         "description": "inventario.tabletas.views",
-        "peekOfCode": "def search_department(request):\n    if request.method == 'POST':\n        form = FormDepartamento(request.POST)\n        if form.is_valid():\n            departamento_seleccionado = form.cleaned_data['departamento']\n            # Aquí puedes hacer algo con el departamento seleccionado, por ejemplo, filtrar empleados\n    else:\n        form = FormDepartamento()\n    return render(request, 'lista_general.html', {'form': form})",
+        "peekOfCode": "def search_department(request):\n    if request.method == 'POST':\n        form = FormDepartamento(request.POST)\n        if form.is_valid():\n            departamento_seleccionado = form.cleaned_data['departamento']\n            # Aquí puedes hacer algo con el departamento seleccionado, por ejemplo, filtrar empleados\n            #empleados_filtrados = Empleado.objects.filter(departamento=departamento_seleccionado)\n    else:\n        form = FormDepartamento()\n    return render(request, 'lista_general.html', {'form': form})",
         "detail": "inventario.tabletas.views",
         "documentation": {}
     },
