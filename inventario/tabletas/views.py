@@ -57,6 +57,8 @@ def search_department(request):
         if form.is_valid():
             departamento_seleccionado = form.cleaned_data['departamento']
             # Aquí puedes hacer algo con el departamento seleccionado, por ejemplo, filtrar empleados
+            #empleados_filtrados = Empleado.objects.filter(departamento=departamento_seleccionado)
+
     else:
         form = FormDepartamento()
     return render(request, 'lista_general.html', {'form': form})
