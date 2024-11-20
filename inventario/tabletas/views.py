@@ -1,7 +1,7 @@
 # my_app/views.py
 from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
-from .models import Tabletas
+from .models import Tabletas, Departamento
 from .forms import FormTableta, FormDepartamento
 from django.contrib import messages
 
@@ -10,6 +10,7 @@ def main_menu(request):
     return render(request, 'main.html')
 
 # listas de tabletas ingresadas en base de datos
+
 def general_tablet_list(request):
     objects = Tabletas.objects.all()
     return render(request, 'lista_general.html', {'objects': objects} )
@@ -30,7 +31,7 @@ def create_tablet(request):
 # para hacer un cambio o eliminar la tableta del sistema
 
 def update_tablet(request, pk):
-    object = FormTableta.objects.get(pk=pk)
+    object = Tabletas.objects.get(pk=pk)
     if request.method == 'POST':
         form = FormTableta(request.POST, instance=object)
         if form.is_valid():
@@ -41,16 +42,21 @@ def update_tablet(request, pk):
     return render(request, 'update.html', {'form': form})
 
 def delete_tablet(request, pk):
-    object = FormTableta.objects.get(pk=pk)
+    try:
+        object = Tabletas.objects.get(pk=pk)
+    except Tabletas.DoesNotExist:
+        messages.error(request, 'Tableta no encontrada.')
+        return redirect('general_tablet_list')
 
     if request.method == 'POST':
         object.delete()
         messages.success(request, 'Tableta eliminada exitosamente.')
-        return redirect('lista_general')
+        return redirect('general_tablet_list')
     else:
         context = {'object': object}
-        return render(request, 'confirm_delete.html', context)
-    
+        return render(request, 'delete_notification.html', context)
+
+        
 def search_department(request):
     if request.method == 'POST':
         form = FormDepartamento(request.POST)

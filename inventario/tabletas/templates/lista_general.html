@@ -9,51 +9,53 @@
     </header>
 
     <h1>Inventario General de Tabletas</h1>
-    
+
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Buscar</button>    
-        <button type="submit" href="{% url 'create_tablet' %}">Agregar Nueva Tableta</button>
     </form>
+    
     <div>
-        <button type="submit">Imprimir Lista</button>
+        <a href="{% url 'create_tablet' %}">Agregar Nueva Tableta</a>
     </div>
-
+    <br>
+   
     <table border="1">
         <thead>
             <tr>
+                <th>Departamento</th>
+                <th>Tag ID</th>                
                 <th>Usuario</th>
                 <th>Email Address</th>
                 <th>Classification</th>
                 <th>Area</th>
-                <th>Telefono</th>
+                <th>Telefono</th>                
                 <th>Dispositivo</th>
                 <th>IMEI</th>
                 <th>SIM Card</th>
                 <th>Versión</th>
                 <th>Puerto de Carga</th>
-                <th>Tag ID</th>
-                <th>Departamento</th>
                 <th>Actualizado en</th>
+                <th>Actualizado por:</th>
             </tr>
         </thead>
         <tbody>
             {% for tablet in objects %}
                 <tr>
+                    <td>{{ tablet.departamento }}</td>
                     <td>{{ tablet.usuario }}</td>
+                    <td>{{ tablet.tag_id }}</td>
                     <td>{{ tablet.email_address }}</td>
                     <td>{{ tablet.classification }}</td>
                     <td>{{ tablet.area }}</td>
                     <td>{{ tablet.telefono }}</td>
-                    <td>{{ tablet.dispositivo }}</td>
+                    <td>{{ tablet.dispositivo }}</td>                    
                     <td>{{ tablet.imei }}</td>
                     <td>{{ tablet.sim_card }}</td>
                     <td>{{ tablet.version }}</td>
                     <td>{{ tablet.puerto_de_carga}}</td>
-                    <td>{{ tablet.tag_id }}</td>
-                    <td>{{ tablet.departamento }}</td>
                     <td>{{ tablet.last_modification }}</td>
+                    <td>Admin</td>
                     <td>
                     <a href="{% url 'update_tablet' tablet.pk %}">Editar</a>
                     <a href="{% url 'delete_tablet' tablet.pk %}">Eliminar</a>

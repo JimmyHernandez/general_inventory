@@ -11,7 +11,8 @@ class Departamento(models.Model):
         ('ORNATO' , 'ORNATO'),
         ('IT' , 'IT'),
         ('ORQUIDEA' , 'ORQUIDEA'),
-        ('OFICINA' , 'OFICINA')
+        ('OFICINA' , 'OFICINA'),
+        ('TODOS' , 'TODOS')
        ])  # Asegurar que cada nombre sea único
     
 

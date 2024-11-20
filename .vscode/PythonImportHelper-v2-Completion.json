@@ -392,7 +392,7 @@
         "kind": 5,
         "importPath": "inventario.tabletas.urls",
         "description": "inventario.tabletas.urls",
-        "peekOfCode": "urlpatterns = [\n    path('', views.main_menu, name='main_menu'),\n    path('tabletas/', views.search_department, name='search_department'),\n    path('create/', views.create_tablet, name='create_tablet'),\n    path('update/<int:pk>/', views.update_tablet, name='update_tablet'),\n    path('delete/<int:pk>/', views.delete_tablet, name='delete_tablet'),\n]",
+        "peekOfCode": "urlpatterns = [\n    path('', views.main_menu, name='main_menu'),\n    path('lists/', views.general_tablet_list, name='general_tablet_list'),\n    path('create/', views.create_tablet, name='create_tablet'),\n    path('update/<int:pk>/', views.update_tablet, name='update_tablet'),\n    path('delete/<int:pk>/', views.delete_tablet, name='delete_tablet'),\n]",
         "detail": "inventario.tabletas.urls",
         "documentation": {}
     },
@@ -428,7 +428,7 @@
         "kind": 2,
         "importPath": "inventario.tabletas.views",
         "description": "inventario.tabletas.views",
-        "peekOfCode": "def update_tablet(request, pk):\n    object = FormTableta.objects.get(pk=pk)\n    if request.method == 'POST':\n        form = FormTableta(request.POST, instance=object)\n        if form.is_valid():\n            form.save()\n            return redirect('general_tablet_list')\n    else:\n        form = FormTableta(instance=object)\n    return render(request, 'update.html', {'form': form})",
+        "peekOfCode": "def update_tablet(request, pk):\n    object = Tabletas.objects.get(pk=pk)\n    if request.method == 'POST':\n        form = FormTableta(request.POST, instance=object)\n        if form.is_valid():\n            form.save()\n            return redirect('general_tablet_list')\n    else:\n        form = FormTableta(instance=object)\n    return render(request, 'update.html', {'form': form})",
         "detail": "inventario.tabletas.views",
         "documentation": {}
     },
@@ -437,7 +437,7 @@
         "kind": 2,
         "importPath": "inventario.tabletas.views",
         "description": "inventario.tabletas.views",
-        "peekOfCode": "def delete_tablet(request, pk):\n    object = FormTableta.objects.get(pk=pk)\n    if request.method == 'POST':\n        object.delete()\n        messages.success(request, 'Tableta eliminada exitosamente.')\n        return redirect('lista_general')\n    else:\n        context = {'object': object}\n        return render(request, 'confirm_delete.html', context)\ndef search_department(request):",
+        "peekOfCode": "def delete_tablet(request, pk):\n    try:\n        object = Tabletas.objects.get(pk=pk)\n    except Tabletas.DoesNotExist:\n        messages.error(request, 'Tableta no encontrada.')\n        return redirect('general_tablet_list')\n    if request.method == 'POST':\n        object.delete()\n        messages.success(request, 'Tableta eliminada exitosamente.')\n        return redirect('general_tablet_list')",
         "detail": "inventario.tabletas.views",
         "documentation": {}
     },
