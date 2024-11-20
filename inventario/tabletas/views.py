@@ -56,7 +56,6 @@ def delete_tablet(request, pk):
         context = {'object': object}
         return render(request, 'delete_notification.html', context)
 
-        
 def search_department(request):
     if request.method == 'POST':
         form = FormDepartamento(request.POST)

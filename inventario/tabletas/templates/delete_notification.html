@@ -4,28 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notificación</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin: 0;
-            padding: 20px;
-            background-color: #f0f0f0;
-        }
-
-        .notification {
-            background-color: #4CAF50; /* Verde para éxito */
-            color: white;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        }
-    </style>
 </head>
 <body>
     <div class="notification">
-        <h2>¡Tablet eliminada exitosamente!</h2>
-        <p>La tableta ha sido borrada de la base de datos.</p>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="pk" value="{{ object.pk }}">
+            <p>¿Estás seguro de querer eliminar esta tableta?</p>
+            <button type="submit">Eliminar</button>
+        </form>
         <a href="{% url 'general_tablet_list' %}" class="app"> Volver a lista de Tabletas</a>
     </div>
 </body>
