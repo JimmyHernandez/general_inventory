@@ -9,17 +9,12 @@
     </header>
 
     <h1>Inventario General de Tabletas</h1>
-
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-    </form>
-    
     <div>
+    <button>
         <a href="{% url 'create_tablet' %}">Agregar Nueva Tableta</a>
+    </button>
     </div>
     <br>
-   
     <table border="1">
         <thead>
             <tr>
@@ -42,7 +37,7 @@
         <tbody>
             {% for tablet in objects %}
                 <tr>
-                    <td>{{ tablet.departamento }}</td>
+                    <td>{{ tablet.departament }}</td>
                     <td>{{ tablet.usuario }}</td>
                     <td>{{ tablet.tag_id }}</td>
                     <td>{{ tablet.email_address }}</td>

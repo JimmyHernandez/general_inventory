@@ -7,13 +7,17 @@ Here's a breakdown of the structure and elements in the code: -->
   </head>
   <body>
     <header>
-      <a href="#" class="back-button">← Volver</a>
-      <a href="{% url 'main_menu' %}" class="home-button">Inicio</a>
+        <a href="{% url 'general_tablet_list' %}" class="back-button">← Volver</a>
+        <a href="{% url 'main_menu' %}" class="home-button">Inicio</a>
     </header>
+
     <h1>Agregar Nueva Tableta</h1>
+
     <form method="post">
       {% csrf_token %} {{ form.as_p }}
       <button type="submit">Guardar</button>
     </form>
+
+    
   </body>
 </html>
